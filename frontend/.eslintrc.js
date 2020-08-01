@@ -17,5 +17,8 @@ module.exports = {
     node: true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
-  plugins: ['react', 'import', 'jsx-a11y', 'react-hooks'],
+  plugins: ['react', 'import', 'jsx-a11y', 'react-hooks', 'prettier'],
+  rules: {
+    'prettier/prettier': 1,
+  }
 };

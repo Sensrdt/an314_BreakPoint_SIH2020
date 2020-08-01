@@ -5,18 +5,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const startApp = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-  serviceWorker.register();
-}
+    ReactDOM.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>,
+        document.getElementById('root'),
+    );
+    serviceWorker.register();
+};
 
 if (window.cordova) {
-  document.addEventListener('deviceready', startApp, false);
+    document.addEventListener('deviceready', startApp, false);
 } else {
-  startApp();
+    startApp();
 }
-
