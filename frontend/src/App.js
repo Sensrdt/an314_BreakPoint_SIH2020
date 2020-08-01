@@ -1,16 +1,16 @@
 import React from 'react';
-import NavBar from './components/MainScreen/index';
-import StatData from './components/ShowData/index';
+import NavBar from './components/Navbar';
 import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './components/Routes';
 
 function App() {
     return (
         <div className="App">
-            {/* <h1>Line Chart</h1>
-                <br />
-                <GraphLineChart /> */}
             <NavBar />
-            <StatData />
+            <Router>
+                <Routes />
+            </Router>
         </div>
     );
 }

@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
     },
 }));
-export default function index() {
+
+export default function ShowData() {
     const classes = useStyles();
 
     return (
