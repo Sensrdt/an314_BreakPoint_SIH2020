@@ -19,6 +19,7 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   plugins: ['react', 'import', 'jsx-a11y', 'react-hooks', 'prettier'],
   rules: {
+    'react/prop-types': 0,
     'prettier/prettier': 1,
-  }
+  },
 };
