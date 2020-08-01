@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.reelitin" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.breakpoint.reelitin" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
     <name>Reelitin</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        The Cordova app for Reelitin
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="breakpoint.rcc@gmail.com" href="https://github.com/Sensrdt/an314_BreakPoint_SIH2020">
         Apache Cordova Team
     </author>
     <content src="index.html" />

@@ -34,6 +34,7 @@ platforms/ios/cordova/console.log
 platforms/android/.gradle
 platforms/android/build
 platforms/android/assets/www
+frontend/platforms/android/app/src/main/assets/www/
 platforms/android/local.properties
 platforms/android/CordovaLib/build
 platforms/android/CordovaLib/gen
@@ -129,7 +130,3 @@ $RECYCLE.BIN/
 .AppleDB
 .AppleDesktop
 .apdisk
-
-#build
-
-www/

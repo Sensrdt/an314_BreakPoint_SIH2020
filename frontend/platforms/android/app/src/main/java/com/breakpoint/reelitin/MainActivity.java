@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.example.reelitin;
+package com.breakpoint.reelitin;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
