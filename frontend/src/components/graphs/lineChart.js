@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { scaleLinear, scaleBand } from 'd3-scale';
 import XYAxis from './axis/xy-axis';
 import Line from './line/line';
