@@ -30,7 +30,6 @@ export default function guide() {
                 <Typography variant="h5" component="h2">
                     Drugs guidelines
                 </Typography>
-
                 <Typography variant="body2" component="p">
                     well meaning and kindly.
                     <br />

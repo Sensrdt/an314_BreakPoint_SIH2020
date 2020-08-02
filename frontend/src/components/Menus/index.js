@@ -2,8 +2,6 @@ import React from 'react';
 import history from '../history';
 import { Button, Grid, Avatar, makeStyles, Paper } from '@material-ui/core';
 
-import history from '../history';
-
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -28,7 +26,7 @@ export default function ShowData() {
                         <Avatar>W</Avatar>
                     </Grid>
                     <Grid item xs zeroMinWidth>
-                        <Button onClick={() => history.push('/guidelines', '')}>
+                        <Button onClick={() => history.push('/guide', '')}>
                             View Guidelines
                         </Button>
                     </Grid>
