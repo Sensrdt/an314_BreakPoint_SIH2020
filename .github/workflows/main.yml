@@ -32,4 +32,5 @@ jobs:
         heroku_api_key: ${{ secrets.HEROKU_SECRET }}
         heroku_email: anubhab.mukherjee2013@gmail.com
         heroku_app_name: reelitin 
+        appdir: .
 
