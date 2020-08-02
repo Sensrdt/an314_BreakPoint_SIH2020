@@ -1,7 +1,11 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
+
 const auth = require('./auth');
 const api = require('./routes');
+
+const env = process.env.NODE_ENV || 'development';
 
 const {
     connect: connectToDatabase,
@@ -22,9 +26,12 @@ app.use(function (req, res, next) {
 app.use('/auth', auth);
 app.use('/api', api);
 
-app.get('/', (req, res) => {
-    res.send('This is the (not so) home page!!');
-});
+// app.get('/', (req, res) => {
+//     res.send('This is the (not so) home page!!');
+// });
+
+if (env == 'production')
+    app.use(express.static(path.join(path.resolve(), '../frontend/build')));
 
 const {
     env: { USERNAME: user, PASSWORD: pass, PORT },

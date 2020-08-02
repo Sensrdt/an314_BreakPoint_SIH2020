@@ -1,0 +1,21 @@
+{
+  "name": "an314_breakpoint_sih2020",
+  "version": "1.0.0",
+  "description": "Root repository for the ReelItIn project, for PSID AN314 SIH-2020",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production npm --prefix backend start",
+    "install": "npm --prefix backend install",
+    "build_front": "npm --prefix frontend run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sensrdt/an314_BreakPoint_SIH2020.git"
+  },
+  "author": "BreakPoint",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sensrdt/an314_BreakPoint_SIH2020/issues"
+  },
+  "homepage": "https://github.com/Sensrdt/an314_BreakPoint_SIH2020#readme"
+}
