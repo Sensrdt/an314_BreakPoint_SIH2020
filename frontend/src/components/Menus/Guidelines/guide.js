@@ -23,24 +23,14 @@ const useStyles = makeStyles({
 
 export default function guide() {
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
 
     return (
         <Card className={classes.root} variant="outlined">
             <CardContent>
-                <Typography
-                    className={classes.title}
-                    color="textSecondary"
-                    gutterBottom
-                >
+                <Typography variant="h5" component="h2">
                     Drugs guidelines
                 </Typography>
-                <Typography variant="h5" component="h2">
-                    be{bull}nev{bull}o{bull}lent
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                    adjective
-                </Typography>
+
                 <Typography variant="body2" component="p">
                     well meaning and kindly.
                     <br />
