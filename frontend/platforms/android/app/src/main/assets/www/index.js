@@ -1,5 +1,6 @@
 const StartApp = () => {
-    window.location = 'http://192.168.1.38:3000';
+    // window.location = 'https://reelitin.herokuapp.com/';
+    window.open('https://reelitin.herokuapp.com/', '_blank', 'location=yes');
 };
 
 if (window.cordova) {

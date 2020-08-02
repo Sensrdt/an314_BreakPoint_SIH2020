@@ -24,13 +24,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-// app.get('/', (req, res) => {
-//     res.send('This is the (not so) home page!!');
-// });
-
 if (env === 'production')
     app.use(
-        ['/', '/login'],
+        ['/', '/login', '/drugs', '/guide', '/supl', '/pres', '/disp'],
         express.static(path.join(path.resolve(), '../frontend/build')),
     );
 

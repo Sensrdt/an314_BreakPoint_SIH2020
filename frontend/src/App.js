@@ -1,20 +1,26 @@
-import React from 'react';
-import NavBar from './components/Navbar';
-import './App.css';
-// import { BrowserRouter as Router } from 'react-router-dom';
-// import Routes from './components/Routes';
-import { Dispensary } from './components/Forms';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-function App() {
+import NavBar from './components/Navbar';
+import Routes from './components/Routes';
+
+export default function App() {
+    const [session, setSession] = useState({});
+    useEffect(() => {
+        fetch('/auth/profile')
+            .then((res) => res.json())
+            .then((data) => {
+                setSession(data);
+                console.log(data);
+            });
+    }, []);
+
     return (
-        <div className="App">
-            <NavBar />
-            {/* <Router> 
+        <div style={{ textAlign: 'center', margin: 0 }}>
+            <NavBar isLoggedIn={!!session.email} email={session.email} />
+            <Router>
                 <Routes />
-            </Router> */}
-            <Dispensary />
+            </Router>
         </div>
     );
 }
-
-export default App;

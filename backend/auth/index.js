@@ -6,7 +6,8 @@ const cookie = require('cookie-session');
 const User = require('../models/user');
 
 const { CLIENT_ID: clientID, CLIENT_SECRET: clientSecret } = process.env;
-const callbackURL = 'https://reelitin.herokuapp.com/auth/google/callback';
+// const callbackURL = 'https://reelitin.herokuapp.com/auth/google/callback';
+const callbackURL = 'http://localhost:8080/auth/google/callback';
 
 const app = Router();
 
@@ -79,12 +80,17 @@ app.get(
     '/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
-        res.redirect('/');
+        res.redirect('/auth/test');
     },
 );
 
-app.get('/test', (req, res) => {
+app.get('/profile', (req, res) => {
     res.send(req.user);
+});
+
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.send();
 });
 
 module.exports = app;

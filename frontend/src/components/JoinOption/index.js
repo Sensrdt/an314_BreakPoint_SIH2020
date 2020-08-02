@@ -37,6 +37,7 @@ const joinOptions = () => {
                         onClick={() => {
                             window.location =
                                 'https://reelitin.herokuapp.com/auth/google';
+                            // 'http://localhost:8080/auth/google';
                         }}
                     >
                         Sign In With Google

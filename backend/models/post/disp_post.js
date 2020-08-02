@@ -6,18 +6,22 @@ const schema = new Schema({
         required: true,
     },
     dosage: {
-        form: {
-            type: 'String',
-        },
-        strength: {
-            type: 'String',
+        type: {
+            form: {
+                type: 'String',
+            },
+            strength: {
+                type: 'String',
+            },
         },
         required: true,
     },
     quantity: {
-        amount: 'Number',
-        sub_amount: 'Number',
-        scale: 'String',
+        type: {
+            amount: 'Number',
+            sub_amount: 'Number',
+            scale: 'String',
+        },
         required: true,
     },
     location: {

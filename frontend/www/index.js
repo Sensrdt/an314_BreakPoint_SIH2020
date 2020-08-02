@@ -1,5 +1,6 @@
 const StartApp = () => {
-    window.location = 'https://reelitin.herokuapp.com/';
+    // window.location = 'https://reelitin.herokuapp.com/';
+    window.open('https://reelitin.herokuapp.com/', '_blank', 'location=yes');
 };
 
 if (window.cordova) {

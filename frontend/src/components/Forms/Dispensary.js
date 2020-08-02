@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, TextField, IconButton, MenuItem } from '@material-ui/core';
-import { CheckCircleOutline } from '@material-ui/icons/';
+import { CheckCircleOutline } from '@material-ui/icons';
 //TODO: Complete
 const DispForm = () => {
     const [name, setName] = useState('');
