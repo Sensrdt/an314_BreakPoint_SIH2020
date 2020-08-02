@@ -17,6 +17,9 @@ const schema = new Schema({
         sub_amount: 'Number',
         scale: 'String',
     },
+    location: {
+        type: 'String',
+    }
 });
 
 const Data = model('data_disp', schema, 'data_disp');

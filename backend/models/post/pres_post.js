@@ -21,6 +21,9 @@ const schema = new Schema({
     ageGroup: {
         type: 'Number',
     },
+    location: {
+        type: 'String',
+    },
 });
 
 const Data = model('data_pres', schema, 'data_pres');
