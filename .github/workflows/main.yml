@@ -24,7 +24,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Builds the project
-      run: npm --prefix frontend install && npm build
+      run: npm --prefix frontend install && npm build_front
       
     - name: Deploys the project
       uses: AkhileshNS/heroku-deploy@v3.4.6

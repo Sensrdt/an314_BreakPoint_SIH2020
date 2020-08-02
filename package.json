@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production npm --prefix backend start",
     "install": "npm --prefix backend install",
-    "build": "npm --prefix frontend run build"
+    "build_front": "npm --prefix frontend run build"
   },
   "repository": {
     "type": "git",
