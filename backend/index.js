@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 
 if (env === 'production')
     app.use(
-        '/',
+        ['/', '/login'],
         express.static(path.join(path.resolve(), '../frontend/build')),
     );
 

@@ -6,7 +6,7 @@ const cookie = require('cookie-session');
 const User = require('../models/user');
 
 const { CLIENT_ID: clientID, CLIENT_SECRET: clientSecret } = process.env;
-const callbackURL = 'http://localhost:8080/auth/google/callback';
+const callbackURL = 'https://reelitin.herokuapp.com/auth/google/callback';
 
 const app = Router();
 
