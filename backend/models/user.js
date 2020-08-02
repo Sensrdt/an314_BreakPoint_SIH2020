@@ -23,6 +23,15 @@ const userSchema = new Schema({
         unique: true,
         required: true,
     },
+    userType: {
+        type: String,
+        enum: ['Supplier', 'Prescriber', 'Dispensary'],
+        required: true,
+    },
+    verified: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const User = model('User', userSchema);

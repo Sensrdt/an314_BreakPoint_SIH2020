@@ -11,7 +11,7 @@ const drugInfo = new Schema({
         type: 'Date',
     },
     drugbank_id: {
-        type: ['Mixed'],
+        type: 'String',
     },
     name: {
         type: 'String',
