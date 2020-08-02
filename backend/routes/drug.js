@@ -1,6 +1,6 @@
-const express = require('express');
+const { Router } = require('express');
 const Drug = require('../models/drug');
-const router = new express.Router();
+const router = new Router();
 
 router.get('/get/:name', async (req, res) => {
     const name = req.params.name;
