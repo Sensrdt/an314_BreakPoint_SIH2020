@@ -34,6 +34,10 @@ const joinOptions = () => {
                         variant="contained"
                         color="secondary"
                         startIcon={<Person />}
+                        onClick={() => {
+                            window.location =
+                                'https://reelitin.herokuapp.com/auth/google';
+                        }}
                     >
                         Sign In With Google
                     </Button>
