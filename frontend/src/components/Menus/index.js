@@ -1,4 +1,5 @@
 import React from 'react';
+import history from '../history';
 import { Button, Grid, Avatar, makeStyles, Paper } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +26,9 @@ export default function ShowData() {
                         <Avatar>W</Avatar>
                     </Grid>
                     <Grid item xs zeroMinWidth>
-                        <Button>View Guidelines</Button>
+                        <Button onClick={() => history.push('/guidelines', '')}>
+                            View Guidelines
+                        </Button>
                     </Grid>
                 </Grid>
             </Paper>
