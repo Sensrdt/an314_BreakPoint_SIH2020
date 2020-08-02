@@ -23,15 +23,19 @@ app.use(function (req, res, next) {
     );
     next();
 });
-app.use('/auth', auth);
-app.use('/api', api);
 
 // app.get('/', (req, res) => {
 //     res.send('This is the (not so) home page!!');
 // });
 
-if (env == 'production')
-    app.use(express.static(path.join(path.resolve(), '../frontend/build')));
+if (env === 'production')
+    app.use(
+        '/',
+        express.static(path.join(path.resolve(), '../frontend/build')),
+    );
+
+app.use('/auth', auth);
+app.use('/api', api);
 
 const {
     env: { USERNAME: user, PASSWORD: pass, PORT },
