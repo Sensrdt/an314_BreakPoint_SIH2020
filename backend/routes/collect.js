@@ -2,7 +2,7 @@ const { Router } = require('express');
 const supl_post = require('../models/post/supl_post');
 const pres_post = require('../models/post/pres_post');
 const disp_post = require('../models/post/disp_post');
-const results = require('../models/results');
+const Results = require('../models/results');
 const states = require('../constants/states_uts');
 const ages = require('../constants/age_groups');
 const router = new Router();
@@ -19,16 +19,32 @@ router.post('/supl', async (req, res) => {
             quantity: { amount, sub_amount },
         } = data;
         const drugActivity = amount * sub_amount * strength;
-        results.findOne({ drugName: data.drug }, (err, result) => {
+        Results.findOne({ drugName: data.drug }, (err, result) => {
             if (err) {
-                res.status(404).send();
+                // create a new result document
+                const emptyResult = new Results({
+                    drugName: data.drug,
+                    sourceDrugActivity: {
+                        supplier: 0,
+                        prescriber: 0,
+                        dispenser: 0,
+                    },
+                    stateDrugActivity: Array(states.length).fill(0),
+                    ageDrugActivity: Array(ages.length).fill(0),
+                });
+                Results.insertOne(emptyResult, (err) => {
+                    if (err) {
+                        res.status(500).send();
+                    }
+                });
+            } else {
+                result.sourceDrugActivity.supplier += drugActivity;
+                result.save((err) => {
+                    if (err) {
+                        res.status(404).send();
+                    }
+                });
             }
-            result.sourceDrugActivity.supplier += drugActivity;
-            result.save((err) => {
-                if (err) {
-                    res.status(404).send();
-                }
-            });
         });
     } catch (e) {
         res.status(500).send();
@@ -47,9 +63,24 @@ router.post('/pres', async (req, res) => {
             dosage: { strength },
         } = data;
         const drugActivity = duration * strength;
-        results.findOne({ drugName: data.drug }, (err, result) => {
+        Results.findOne({ drugName: data.drug }, (err, result) => {
             if (err) {
-                res.status(404).send();
+                // create a new result document
+                const emptyResult = new Results({
+                    drugName: data.drug,
+                    sourceDrugActivity: {
+                        supplier: 0,
+                        prescriber: 0,
+                        dispenser: 0,
+                    },
+                    stateDrugActivity: Array(states.length).fill(0),
+                    ageDrugActivity: Array(ages.length).fill(0),
+                });
+                Results.insertOne(emptyResult, (err) => {
+                    if (err) {
+                        res.status(500).send();
+                    }
+                });
             }
             result.sourceDrugActivity.prescriber += drugActivity;
             const stateIndex = states.indexOf(data.location);
@@ -83,9 +114,24 @@ router.post('/disp', async (req, res) => {
             quantity: { amount, sub_amount },
         } = data;
         const drugActivity = amount * sub_amount * strength;
-        results.findOne({ drugName: data.drug }, (err, result) => {
+        Results.findOne({ drugName: data.drug }, (err, result) => {
             if (err) {
-                res.status(404).send();
+                // create a new result document
+                const emptyResult = new Results({
+                    drugName: data.drug,
+                    sourceDrugActivity: {
+                        supplier: 0,
+                        prescriber: 0,
+                        dispenser: 0,
+                    },
+                    stateDrugActivity: Array(states.length).fill(0),
+                    ageDrugActivity: Array(ages.length).fill(0),
+                });
+                Results.insertOne(emptyResult, (err) => {
+                    if (err) {
+                        res.status(500).send();
+                    }
+                });
             }
             result.sourceDrugActivity.dispenser += drugActivity;
             const stateIndex = states.indexOf(data.location);
