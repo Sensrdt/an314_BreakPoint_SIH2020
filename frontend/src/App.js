@@ -1,16 +1,18 @@
 import React from 'react';
-import NavBar from './components/Navbar';
+// import NavBar from './components/Navbar';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './components/Routes';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import Routes from './components/Routes';
+import SuplForm from './components/SuplForm';
 
 function App() {
     return (
         <div className="App">
-            <NavBar />
+            {/* <NavBar />
             <Router>
                 <Routes />
-            </Router>
+            </Router> */}
+            <SuplForm />
         </div>
     );
 }
