@@ -2,20 +2,20 @@ const { Schema, model } = require('mongoose');
 
 const schema = new Schema({
     drug: {
-        type: 'String',
+        type: String,
     },
     dosage: {
         form: {
-            type: 'String',
+            type: String,
         },
         strength: {
-            type: 'String',
+            type: String,
         },
     },
     quantity: {
-        amount: 'Number',
-        sub_amount: 'Number',
-        scale: 'String',
+        amount: Number,
+        sub_amount: Number,
+        scale: String,
     },
 });
 
