@@ -41,7 +41,7 @@ const {
     env: { USERNAME: user, PASSWORD: pass, PORT },
 } = process;
 
-connectToDatabase('mongodb+srv://reelitin.5jxp1.mongodb.net/test', {
+connectToDatabase('mongodb+srv://reelitin.5jxp1.mongodb.net/reelitin', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
