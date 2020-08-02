@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const auth = require('./auth');
+const api = require('./routes');
+
 const {
     connect: connectToDatabase,
     connection: databaseConnection,
@@ -9,7 +11,6 @@ const {
 const app = express();
 
 app.use(express.json());
-app.use('/auth', auth);
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header(
@@ -18,6 +19,8 @@ app.use(function (req, res, next) {
     );
     next();
 });
+app.use('/auth', auth);
+app.use('/api', api);
 
 app.get('/', (req, res) => {
     res.send('This is the (not so) home page!!');
