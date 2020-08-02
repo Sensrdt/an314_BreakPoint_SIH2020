@@ -7,12 +7,13 @@ import Routes from './components/Routes';
 export default function App() {
     const [session, setSession] = useState({});
     useEffect(() => {
-        fetch('/auth/profile')
-            .then((res) => res.json())
-            .then((data) => {
-                setSession(data);
-                console.log(data);
-            });
+        // fetch('/auth/profile')
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         setSession(data);
+        //         console.log(data);
+        //     });
+        setSession({ email: 'account' });
     }, []);
 
     return (

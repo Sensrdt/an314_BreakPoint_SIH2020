@@ -5,7 +5,7 @@ import login from './JoinOption';
 import history from './history';
 import Menus from './Menus';
 import guidelines from './Menus/Guidelines/guide';
-import DrugList from './DrugList';
+import DrugList from './Menus/DrugDetails/Details';
 import { Dispensary, Prescriber, Supplier } from './Forms';
 
 const Routes = () => (
