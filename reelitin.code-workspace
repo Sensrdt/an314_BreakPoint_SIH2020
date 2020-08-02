@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "backend",
+			"name": "server"
+		},
+		{
+			"path": "frontend",
+			"name": "frontend"
+		}
+	],
+	"settings": {
+		"deno.enable": false,
+	}
+}

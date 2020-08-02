@@ -4,7 +4,7 @@ const pres_post = require('../models/post/pres_post');
 const disp_post = require('../models/post/disp_post');
 const router = new express.Router();
 
-router.post('/collect/supl', async (req, res) => {
+router.post('/supl', async (req, res) => {
     try {
         let data = req.body.payload;
         supl_post.insertOne(data, (err) => {
@@ -15,7 +15,7 @@ router.post('/collect/supl', async (req, res) => {
     }
 });
 
-router.post('/collect/pres', async (req, res) => {
+router.post('/pres', async (req, res) => {
     try {
         let data = req.body.payload;
         pres_post.insertOne(data, (err) => {
@@ -26,7 +26,7 @@ router.post('/collect/pres', async (req, res) => {
     }
 });
 
-router.post('/collect/disp', async (req, res) => {
+router.post('/disp', async (req, res) => {
     try {
         let data = req.body.payload;
         disp_post.insertOne(data, (err) => {

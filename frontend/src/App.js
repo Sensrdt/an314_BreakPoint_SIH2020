@@ -3,6 +3,7 @@ import NavBar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './components/Routes';
+// import SuplForm from './components/SuplForm';
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <Router>
                 <Routes />
             </Router>
+            {/* <SuplForm /> */}
         </div>
     );
 }
