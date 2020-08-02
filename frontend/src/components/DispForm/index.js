@@ -2,10 +2,10 @@ import React from 'react';
 import { Grid, TextField, IconButton } from '@material-ui/core';
 import { CheckCircleOutline } from '@material-ui/icons/';
 
-const SuplForm = () => {
+const DispForm = () => {
     return (
         <>
-            <h1>Supply Form</h1>
+            <h1>Dispensary Form</h1>
             <Grid
                 container
                 direction="column"
@@ -70,4 +70,4 @@ const SuplForm = () => {
     );
 };
 
-export default SuplForm;
+export default DispForm;

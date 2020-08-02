@@ -2,10 +2,10 @@ import React from 'react';
 import { Grid, TextField, IconButton } from '@material-ui/core';
 import { CheckCircleOutline } from '@material-ui/icons/';
 
-const SuplForm = () => {
+const PresForm = () => {
     return (
         <>
-            <h1>Supply Form</h1>
+            <h1>Prescription Form</h1>
             <Grid
                 container
                 direction="column"
@@ -27,6 +27,15 @@ const SuplForm = () => {
                         required
                         id="outlined-required"
                         label="Form"
+                        defaultValue=""
+                        variant="outlined"
+                    />
+                </Grid>
+                <Grid item>
+                    <TextField
+                        required
+                        id="outlined-required"
+                        label="Route"
                         defaultValue=""
                         variant="outlined"
                     />
@@ -61,7 +70,7 @@ const SuplForm = () => {
                     />
                 </Grid>
                 <Grid item>
-                    <IconButton color="primary" aria-label="Submit form">
+                    <IconButton color="primary" aria-label="Submit Form">
                         <CheckCircleOutline />
                     </IconButton>
                 </Grid>
@@ -70,4 +79,4 @@ const SuplForm = () => {
     );
 };
 
-export default SuplForm;
+export default PresForm;
