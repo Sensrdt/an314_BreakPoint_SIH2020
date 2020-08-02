@@ -9,7 +9,7 @@ const schema = new Schema({
             type: String,
         },
         strength: {
-            type: String,
+            type: Number,
         },
     },
     quantity: {
