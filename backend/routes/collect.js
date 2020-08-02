@@ -1,8 +1,8 @@
-const express = require('express');
+const { Router } = require('express');
 const supl_post = require('../models/post/supl_post');
 const pres_post = require('../models/post/pres_post');
 const disp_post = require('../models/post/disp_post');
-const router = new express.Router();
+const router = new Router();
 
 router.post('/supl', async (req, res) => {
     try {

@@ -1,6 +1,6 @@
-const express = require('express');
+const { Router } = require('express');
 const Target = require('../models/target');
-const router = new express.Router();
+const router = new Router();
 
 router.get('/get/:id', async (req, res) => {
     const id = req.params.id;
