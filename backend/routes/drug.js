@@ -68,7 +68,7 @@ router.get('/search', async (req, res) => {
 
 router.get('/list', async (req, res) => {
     try {
-        Drug.find({}, { name: 1, _id: 1 }, (err, doc) => {
+        Drug.find({}, { name: 1, _id: 1, drugbank_id: 1 }, (err, doc) => {
             if (err || doc == null) return res.sendStatus(404);
             console.log(doc);
             res.send(doc);
