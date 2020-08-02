@@ -52,11 +52,11 @@ router.post('/pres', async (req, res) => {
                 res.status(404).send();
             }
             result.sourceDrugActivity.prescriber += drugActivity;
-            let stateIndex = states.indexOf(data.location);
+            const stateIndex = states.indexOf(data.location);
             if (stateIndex !== -1) {
                 result.stateDrugActivity[stateIndex] += drugActivity;
             }
-            let ageIndex = ages.indexOf(data.ageGroup);
+            const ageIndex = ages.indexOf(data.ageGroup);
             if (ageIndex !== -1) {
                 result.ageDrugActivity[ageIndex] += drugActivity;
             }
@@ -88,7 +88,7 @@ router.post('/disp', async (req, res) => {
                 res.status(404).send();
             }
             result.sourceDrugActivity.dispenser += drugActivity;
-            let stateIndex = states.indexOf(data.location);
+            const stateIndex = states.indexOf(data.location);
             if (stateIndex !== -1) {
                 result.stateDrugActivity[stateIndex] += drugActivity;
             }

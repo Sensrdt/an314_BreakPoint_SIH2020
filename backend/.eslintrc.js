@@ -9,6 +9,7 @@ module.exports = {
     extends: ['eslint:recommended'],
     plugins: ['prettier'],
     rules: {
+        'prefer-const': 2,
         'prettier/prettier': 1,
     },
 };

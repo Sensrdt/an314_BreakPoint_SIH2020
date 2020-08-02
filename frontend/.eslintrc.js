@@ -21,6 +21,7 @@ module.exports = {
     rules: {
         'react/prop-types': 0,
         'prettier/prettier': 1,
+        'prefer-const': 2,
         quotes: [2, 'single', 'avoid-escape'],
         'import/no-useless-path-segments': [
             2,
