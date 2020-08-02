@@ -6,7 +6,7 @@ cache:
     - node_modules
 script:
   - npm --prefix frontend install
-  - npm run build
+  - npm run build_front
 deploy:
   provider: heroku
   app: reelitin
