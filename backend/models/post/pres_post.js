@@ -2,34 +2,37 @@ const { Schema, model } = require('mongoose');
 
 const schema = new Schema({
     drug: {
-        type: 'String',
+        type: String,
         required: true,
     },
     dosage: {
         form: {
-            type: 'String',
+            type: String,
             required: true,
         },
         route: {
-            type: 'String',
+            type: String,
             required: true,
         },
         strength: {
-            type: 'String',
+            type: String,
             required: true,
         },
     },
     target: {
-        type: 'String',
+        type: String,
         required: true,
     },
     ageGroup: {
-        type: 'String',
+        type: String,
         enum: ['0-2', '3-16', '17-30', '31-45', '46+'],
         required: true,
     },
+    duration: {
+        type: Number,
+    },
     location: {
-        type: 'String',
+        type: String,
         enum: [
             'Andhra Pradesh',
             'Arunachal Pradesh',
