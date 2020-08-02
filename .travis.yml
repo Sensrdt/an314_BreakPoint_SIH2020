@@ -6,9 +6,12 @@ cache:
     - node_modules
 script:
   - npm --prefix frontend install
-  - npm run build
+  - npm run build_front
 deploy:
   provider: heroku
+  on:
+    branch: deployment
+  skip_cleanup: true
   app: reelitin
   api_key:
     secure: wylOlmqNF7Cwlls41xvFB4O1RVJZOwFo5kmTZIbg9z8mJF6Vsl3Fy5P5oNxRJb42B/q49IBsrVFFDesdJ0Xma6SmKsvDZO/mWeq0Kc6gHp5kNkyWYh4RSaCqtcaWy8jwhv6WgbNZrpBbxOhOvoipe7ciGLB9eNXDkv+zYDl8sp1JO/yJrgyRu4ohTX59aN/UPkjnz+eY+SXbMnc3Zgpyy5SFzlPtTjsSEdRqTOAzcYcRSJuITzMzSeuuinzuVMOeg+dCsqR+6/cpp7CIXlCCPXpNw74EiKHjtIfBP00+ZN36pf8G/KbfE6BahDOsfoPgnamHFqcxIKuH4oQ6QgXyTxmSnaxy2hxBnDQYq+PfdUEn4KLUipB6OuyO9NEsY4ukPo7y+vrrktrPEWcdXyufHL0gcg1lD2ncQXwcrkKtiOhEuLTGwXkBmSOMmZIGa7C3DOpHu8jeQsGEtn72jm26DUcYbJtDEt1T3IzCgJWji4iR0926CoffCFzABGnrEHGrcINGDgfLt8uiMK+8fQLZ1SkpQA1uQ2P1ISkUx3KVQZJ1oCALk1KRFN0H1MDo72BjJpxrR6Cx6YTUDZhsZltGzn6fn7l1lywhigw3CKUbQqqb8QYSdTll0DX63ZaVoGfP20GLlxD04L+LFtMwGR3YZEf+2ToTrJnBmDk+//grdY0=
