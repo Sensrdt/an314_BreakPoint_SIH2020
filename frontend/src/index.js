@@ -13,7 +13,7 @@ const startApp = () => {
         </React.StrictMode>,
         document.getElementById('root'),
     );
-    serviceWorker.register();
+    serviceWorker.unregister();
 };
 
 if (window.cordova) {

@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 
-// TODO: complete this
-
 const DrugList = () => {
-    // const [state, setState] = useState([]);
+    const [drugs, setDrugs] = useState([]);
 
-    // useEffect(() => {
-    //     // fetch happens
-    // }, []);
-
-    let drugs = ['A', 'B', 'C'];
+    useEffect(() => {
+        fetch('/api/drug/list')
+            .then((res) => res.json())
+            .then((data) => {
+                setDrugs(data.map((med) => med.name));
+            });
+    }, []);
 
     return (
         <>
