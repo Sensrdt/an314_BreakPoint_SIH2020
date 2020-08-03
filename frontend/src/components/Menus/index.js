@@ -23,31 +23,36 @@ export default function ShowData() {
             <Paper className={classes.paper}>
                 <Grid container wrap="nowrap" spacing={2}>
                     <Grid item>
-                        <Avatar>W</Avatar>
+                        <Avatar>G</Avatar>
                     </Grid>
-                    <Grid item xs zeroMinWidth>
-                        <Button onClick={() => history.push('/guide', '')}>
-                            View Guidelines
-                        </Button>
-                    </Grid>
-                </Grid>
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item>
-                        <Avatar>W</Avatar>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Button onClick={() => history.push('/drugs', '')}>
-                            Drugs Details
-                        </Button>
+                    <Grid
+                        item
+                        xs
+                        zeroMinWidth
+                        onClick={() => history.push('/guide', '')}
+                    >
+                        <Button>View Guidelines</Button>
                     </Grid>
                 </Grid>
             </Paper>
             <Paper className={classes.paper}>
                 <Grid container wrap="nowrap" spacing={2}>
                     <Grid item>
-                        <Avatar>W</Avatar>
+                        <Avatar>D</Avatar>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={12}
+                        onClick={() => history.push('/drugs', '')}
+                    >
+                        <Button>Drugs Details</Button>
+                    </Grid>
+                </Grid>
+            </Paper>
+            <Paper className={classes.paper}>
+                <Grid container wrap="nowrap" spacing={2}>
+                    <Grid item>
+                        <Avatar>T</Avatar>
                     </Grid>
                     <Grid item xs={12}>
                         <Button>T&C for Doctors</Button>
