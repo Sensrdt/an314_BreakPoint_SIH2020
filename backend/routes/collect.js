@@ -119,6 +119,11 @@ router.post('/disp', async (req, res) => {
         Results.findOne({ drugName: data.drug }, (err, result) => {
             if (!result) {
                 // create a new result document
+                const stateIndex = states.indexOf(data.location);
+                console.log(stateIndex);
+                if (stateIndex !== -1) {
+                    result.stateDrugActivity[stateIndex] += drugActivity;
+                }
                 const emptyResult = new Results({
                     drugName: data.drug,
                     sourceDrugActivity: {
@@ -129,6 +134,7 @@ router.post('/disp', async (req, res) => {
                     stateDrugActivity: Array(states.length).fill(0),
                     ageDrugActivity: Array(ages.length).fill(0),
                 });
+                emptyResult.stateDrugActivity[stateIndex] += drugActivity;
                 emptyResult.save((err) => {
                     if (err) {
                         res.status(500).send();
