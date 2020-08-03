@@ -129,7 +129,7 @@ router.post('/disp', async (req, res) => {
                     stateDrugActivity: Array(states.length).fill(0),
                     ageDrugActivity: Array(ages.length).fill(0),
                 });
-                Results.insertOne(emptyResult, (err) => {
+                Results.save(emptyResult, (err) => {
                     if (err) {
                         res.status(500).send();
                     }
