@@ -5,6 +5,7 @@ const DispPost = require('../models/post/disp_post');
 const Results = require('../models/results');
 const states = require('../constants/states_uts');
 const ages = require('../constants/age_groups');
+//const ddd = require('../constants/ddd_offline.json');
 const router = new Router();
 
 router.post('/supl', async (req, res) => {
