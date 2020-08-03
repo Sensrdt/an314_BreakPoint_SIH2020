@@ -3,10 +3,6 @@ const { Schema, model } = require('mongoose');
 // stateDrugActivity[states.indexOf(stateName)] += dda;
 
 const resultSchema = new Schema({
-    drugbankId: {
-        type: String,
-        required: true,
-    },
     drugName: {
         type: String,
         required: true,

@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const states = require('../../constants/states_uts');
+const ages = require('../../constants/age_groups');
 
 const schema = new Schema({
     drug: {
@@ -27,7 +28,7 @@ const schema = new Schema({
     },
     ageGroup: {
         type: String,
-        enum: ['0-2', '3-16', '17-30', '31-45', '46+'],
+        enum: ages,
         required: true,
     },
     duration: {
