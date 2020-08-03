@@ -121,9 +121,6 @@ router.post('/disp', async (req, res) => {
                 // create a new result document
                 const stateIndex = states.indexOf(data.location);
                 console.log(stateIndex);
-                if (stateIndex !== -1) {
-                    result.stateDrugActivity[stateIndex] += drugActivity;
-                }
                 const emptyResult = new Results({
                     drugName: data.drug,
                     sourceDrugActivity: {
@@ -139,7 +136,7 @@ router.post('/disp', async (req, res) => {
                     if (err) {
                         res.status(500).send();
                     }
-                    console.log(emptyResult);
+                    res.status(200).send();
                 });
             } else {
                 console.log(result);
