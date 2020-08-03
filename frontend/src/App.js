@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import NavBar from './components/Navbar';
 import Routes from './components/Routes';
-import ExtraDetails from './components/extraDetails';
+import history from './components/history';
 
 export default function App() {
     const [session, setSession] = useState({});
@@ -20,13 +20,14 @@ export default function App() {
             });
     }, []);
 
+    if (session.email && !(session.location && session.userType))
+        history.push('/update');
     return (
         <div style={{ textAlign: 'center', margin: 0 }}>
             <NavBar isLoggedIn={!!session.email} email={session.email} />
             <Router>
                 <Routes />
             </Router>
-            <ExtraDetails email="email" />
         </div>
     );
 }

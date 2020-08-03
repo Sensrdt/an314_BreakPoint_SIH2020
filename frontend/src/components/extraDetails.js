@@ -7,6 +7,7 @@ import {
     IconButton,
 } from '@material-ui/core';
 import { CheckCircleOutline } from '@material-ui/icons';
+import history from './history';
 
 export default function ExtraDetails({ email }) {
     const [location, setLocation] = useState('');
@@ -103,7 +104,7 @@ export default function ExtraDetails({ email }) {
                                 location,
                                 userType,
                             }),
-                        });
+                        }).then(history.push('/'));
                     }}
                 >
                     <CheckCircleOutline />

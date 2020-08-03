@@ -7,6 +7,7 @@ import Menus from './Menus';
 import guidelines from './Menus/Guidelines/guide';
 import DrugList from './Menus/DrugDetails/Details';
 import { Dispensary, Prescriber, Supplier } from './Forms';
+import ExtraDetails from './extraDetails';
 
 const Routes = () => (
     <Router history={history}>
@@ -17,6 +18,7 @@ const Routes = () => (
             <Route path="/supl" exact component={Supplier} />
             <Route path="/pres" exact component={Prescriber} />
             <Route path="/disp" exact component={Dispensary} />
+            <Route path="/update" exact component={ExtraDetails} />
 
             <Route path="/" exact component={Menus} />
         </Switch>

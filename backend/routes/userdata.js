@@ -5,6 +5,7 @@ const User = require('../models/user');
 
 router.post('/', async (req, res) => {
     try {
+        console.log(req.user);
         const { googleId } = req.user;
         User.findOne({ googleId }, (err, user) => {
             if (err) {
