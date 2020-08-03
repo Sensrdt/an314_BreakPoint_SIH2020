@@ -124,7 +124,7 @@ router.post('/disp', async (req, res) => {
                     sourceDrugActivity: {
                         supplier: 0,
                         prescriber: 0,
-                        dispenser: 0,
+                        dispenser: drugActivity,
                     },
                     stateDrugActivity: Array(states.length).fill(0),
                     ageDrugActivity: Array(ages.length).fill(0),
@@ -134,17 +134,18 @@ router.post('/disp', async (req, res) => {
                         res.status(500).send();
                     }
                 });
-            }
-            result.sourceDrugActivity.dispenser += drugActivity;
-            const stateIndex = states.indexOf(data.location);
-            if (stateIndex !== -1) {
-                result.stateDrugActivity[stateIndex] += drugActivity;
-            }
-            result.save((err) => {
-                if (err) {
-                    res.status(404).send();
+            } else {
+                result.sourceDrugActivity.dispenser += drugActivity;
+                const stateIndex = states.indexOf(data.location);
+                if (stateIndex !== -1) {
+                    result.stateDrugActivity[stateIndex] += drugActivity;
                 }
-            });
+                result.save((err) => {
+                    if (err) {
+                        res.status(404).send();
+                    }
+                });
+            }
         });
     } catch (e) {
         console.log(e);
