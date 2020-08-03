@@ -5,7 +5,7 @@ const DispPost = require('../models/post/disp_post');
 const Results = require('../models/results');
 const states = require('../constants/states_uts');
 const ages = require('../constants/age_groups');
-//const ddd = require('../constants/ddd_offline.json');
+const ddd = require('../constants/ddd_offline.json');
 const router = new Router();
 
 router.post('/supl', async (req, res) => {
@@ -19,7 +19,17 @@ router.post('/supl', async (req, res) => {
             dosage: { strength },
             quantity: { amount, sub_amount },
         } = data;
-        const drugActivity = amount * sub_amount * strength;
+
+        const possible_ddd = ddd
+            .find((x) => x.name === data.drug)
+            .DDDs.reduce((a, b) => {
+                if (a === -1 && b.DDD !== -1) return b.DDD;
+                else return a;
+            }, -1);
+
+        const actual_ddd = possible_ddd === -1 ? 1 : possible_ddd;
+
+        const drugActivity = (amount * sub_amount * strength) / actual_ddd;
         Results.findOne({ drugName: data.drug }, (err, result) => {
             if (!result) {
                 // create a new result document
@@ -69,7 +79,17 @@ router.post('/pres', async (req, res) => {
             duration,
             dosage: { strength },
         } = data;
-        const drugActivity = duration * strength;
+
+        const possible_ddd = ddd
+            .find((x) => x.name === data.drug)
+            .DDDs.reduce((a, b) => {
+                if (a === -1 && b.DDD !== -1) return b.DDD;
+                else return a;
+            }, -1);
+
+        const actual_ddd = possible_ddd === -1 ? 1 : possible_ddd;
+
+        const drugActivity = (duration * strength) / actual_ddd;
         Results.findOne({ drugName: data.drug }, (err, result) => {
             if (!result) {
                 // create a new result document
@@ -131,7 +151,17 @@ router.post('/disp', async (req, res) => {
             dosage: { strength },
             quantity: { amount, sub_amount },
         } = data;
-        const drugActivity = amount * sub_amount * strength;
+
+        const possible_ddd = ddd
+            .find((x) => x.name === data.drug)
+            .DDDs.reduce((a, b) => {
+                if (a === -1 && b.DDD !== -1) return b.DDD;
+                else return a;
+            }, -1);
+
+        const actual_ddd = possible_ddd === -1 ? 1 : possible_ddd;
+
+        const drugActivity = (amount * sub_amount * strength) / actual_ddd;
         Results.findOne({ drugName: data.drug }, (err, result) => {
             if (!result) {
                 // create a new result document
