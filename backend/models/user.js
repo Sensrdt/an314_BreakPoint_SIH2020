@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 
+const states = require('../constants/states_uts');
+
 const userSchema = new Schema({
     accessToken: {
         type: String,
@@ -23,10 +25,13 @@ const userSchema = new Schema({
         unique: true,
         required: true,
     },
+    location: {
+        type: String,
+        enum: states,
+    },
     userType: {
         type: String,
         enum: ['Supplier', 'Prescriber', 'Dispensary'],
-        required: true,
     },
     verified: {
         type: Boolean,
