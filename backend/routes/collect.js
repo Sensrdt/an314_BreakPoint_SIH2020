@@ -37,6 +37,7 @@ router.post('/supl', async (req, res) => {
                         res.status(500).send();
                     }
                 });
+                res.status(200).send();
             } else {
                 result.sourceDrugActivity.supplier += drugActivity;
                 result.save((err) => {
@@ -44,6 +45,7 @@ router.post('/supl', async (req, res) => {
                         res.status(404).send();
                     }
                 });
+                res.status(200).send();
             }
         });
     } catch (e) {
@@ -86,6 +88,7 @@ router.post('/pres', async (req, res) => {
                         res.status(500).send();
                     }
                 });
+                res.status(200).send();
             } else {
                 result.sourceDrugActivity.prescriber += drugActivity;
                 const stateIndex = states.indexOf(data.location);
@@ -101,6 +104,7 @@ router.post('/pres', async (req, res) => {
                         res.status(404).send();
                     }
                 });
+                res.status(200).send();
             }
         });
     } catch (e) {
@@ -156,6 +160,7 @@ router.post('/disp', async (req, res) => {
                         res.status(404).send();
                     }
                 });
+                res.status(200).send();
             }
         });
     } catch (e) {
