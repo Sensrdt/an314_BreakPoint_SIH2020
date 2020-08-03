@@ -37,14 +37,13 @@ router.post('/supl', async (req, res) => {
                         res.status(500).send();
                     }
                 });
-            } else {
-                result.sourceDrugActivity.supplier += drugActivity;
-                result.save((err) => {
-                    if (err) {
-                        res.status(404).send();
-                    }
-                });
             }
+            result.sourceDrugActivity.supplier += drugActivity;
+            result.save((err) => {
+                if (err) {
+                    res.status(404).send();
+                }
+            });
         });
     } catch (e) {
         res.status(500).send();
