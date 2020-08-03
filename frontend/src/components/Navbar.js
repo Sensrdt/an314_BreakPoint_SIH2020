@@ -6,6 +6,7 @@ import {
     Typography,
     IconButton,
     Tooltip,
+    Button,
 } from '@material-ui/core';
 import { Add, AccountCircle } from '@material-ui/icons';
 import history from './history';
@@ -48,9 +49,14 @@ export default function Navbar({ isLoggedIn, email }) {
                             <ProfileIcon />
                         </IconButton>
                     </Tooltip>
-                    <Typography variant="h6" className={classes.title}>
-                        Reelitin
-                    </Typography>
+                    <Button
+                        className={classes.title}
+                        onClick={() => history.push('/')}
+                    >
+                        <Typography variant="h6" className={classes.title}>
+                            Reelitin
+                        </Typography>
+                    </Button>
                 </Toolbar>
             </AppBar>
         </div>

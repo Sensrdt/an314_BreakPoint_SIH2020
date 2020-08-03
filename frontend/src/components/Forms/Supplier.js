@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, TextField, IconButton, MenuItem } from '@material-ui/core';
 import { CheckCircleOutline } from '@material-ui/icons/';
-//TODO: Styling
+
 const SuplForm = () => {
     const [name, setName] = useState('');
     const [form, setForm] = useState('');
@@ -42,9 +42,10 @@ const SuplForm = () => {
                 alignItems="center"
                 spacing={2}
             >
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
+                        fullWidth
                         id="outlined-required"
                         label="Generic Name"
                         value={name}
@@ -61,13 +62,14 @@ const SuplForm = () => {
                         ))}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
-                        select
+                        fullWidth
                         id="outlined-required"
                         label="Form"
                         value={form}
+                        select
                         onChange={(e) => {
                             setForm(e.target.value);
                         }}
@@ -80,8 +82,9 @@ const SuplForm = () => {
                         ))}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
+                        fullWidth
                         required
                         id="outlined-required"
                         label="Strength"
@@ -93,8 +96,9 @@ const SuplForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
+                        fullWidth
                         id="outlined-number"
                         label="Amount"
                         type="number"
@@ -108,8 +112,9 @@ const SuplForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
+                        fullWidth
                         id="outlined-number"
                         label="Subamount"
                         type="number"
@@ -123,7 +128,7 @@ const SuplForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <IconButton
                         color="primary"
                         aria-label="Submit form"
