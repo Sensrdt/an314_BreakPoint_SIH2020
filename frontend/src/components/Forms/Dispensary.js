@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, TextField, IconButton, MenuItem } from '@material-ui/core';
 import { CheckCircleOutline } from '@material-ui/icons';
-//TODO: Styling
 const DispForm = () => {
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(0);
@@ -35,7 +34,7 @@ const DispForm = () => {
 
     return (
         <>
-            <h1>Supply Form</h1>
+            <h1>Dispensary Form</h1>
             <Grid
                 container
                 direction="column"
@@ -43,12 +42,13 @@ const DispForm = () => {
                 alignItems="center"
                 spacing={2}
             >
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
                         id="outlined-required"
                         label="Generic Name"
                         value={name}
+                        fullWidth
                         select
                         onChange={(e) => {
                             setName(e.target.value);
@@ -62,9 +62,10 @@ const DispForm = () => {
                         ))}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
+                        fullWidth
                         select
                         id="outlined-required"
                         label="Form"
@@ -83,9 +84,10 @@ const DispForm = () => {
                             : null}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
+                        fullWidth
                         id="outlined-required"
                         label="Strength"
                         value={strength}
@@ -96,12 +98,13 @@ const DispForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         id="outlined-number"
                         label="Amount"
                         type="number"
                         value={amount}
+                        fullWidth
                         onChange={(e) => {
                             setAmount(Math.abs(e.target.value));
                         }}
@@ -111,11 +114,12 @@ const DispForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         id="outlined-number"
                         label="Subamount"
                         type="number"
+                        fullWidth
                         value={sub}
                         onChange={(e) => {
                             setSub(Math.abs(e.target.value));
@@ -126,7 +130,7 @@ const DispForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <IconButton
                         color="primary"
                         aria-label="Submit form"

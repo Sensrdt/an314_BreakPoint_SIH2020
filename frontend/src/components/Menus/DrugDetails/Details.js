@@ -132,11 +132,13 @@ export default function Details() {
     const currentDataSet = data.find((obj) => obj.drugName === modalActive);
 
     useEffect(() => {
-        fetch('/api/drug/result')
+        fetch('/api/drug/results')
             .then((res) => res.json())
             .then((res) => {
+                console.log(res);
                 setData(res);
-            });
+            })
+            .catch(console.log);
     }, []);
 
     return (

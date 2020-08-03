@@ -55,9 +55,12 @@ router.post('/supl', async (req, res) => {
 });
 
 router.post('/pres', async (req, res) => {
+    const location = req.user.location
+        ? req.user.location
+        : 'The Government of NCT of Delhi';
+
     try {
-        const data = new PresPost({ ...req.body.payload, location: 'Assam' });
-        // TODO: Replace location with req.user.location, once implemented
+        const data = new PresPost({ ...req.body.payload, location });
         data.save((err) => {
             console.log(err);
         });
@@ -115,9 +118,11 @@ router.post('/pres', async (req, res) => {
 });
 
 router.post('/disp', async (req, res) => {
+    const location = req.user.location
+        ? req.user.location
+        : 'The Government of NCT of Delhi';
     try {
-        const data = new DispPost({ ...req.body.payload, location: 'Assam' });
-        // TODO: Replace location with req.user.location, once implemented
+        const data = new DispPost({ ...req.body.payload, location });
         data.save((err) => {
             console.log(err);
         });

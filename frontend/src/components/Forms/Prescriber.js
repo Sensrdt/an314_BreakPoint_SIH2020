@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, TextField, IconButton, MenuItem } from '@material-ui/core';
 import { CheckCircleOutline } from '@material-ui/icons/';
-//TODO: Styling
+
 const PresForm = () => {
     const [target, setTarget] = useState('');
     const [targets, setTargets] = useState([]);
@@ -38,12 +38,13 @@ const PresForm = () => {
                 alignItems="center"
                 spacing={2}
             >
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
                         id="outlined-required"
                         label="Target Name"
                         select
+                        fullWidth
                         variant="outlined"
                         value={target}
                         onClick={(e) => {
@@ -57,12 +58,13 @@ const PresForm = () => {
                         ))}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
                         id="outlined-required"
                         label="Drug Name"
                         select
+                        fullWidth
                         variant="outlined"
                         value={drug}
                         onClick={(e) => {
@@ -81,12 +83,13 @@ const PresForm = () => {
                             : null}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
                         id="outlined-required"
                         label="Strength"
                         value={strength}
+                        fullWidth
                         type="number"
                         onChange={(e) => {
                             setStrength(e.target.value);
@@ -94,12 +97,13 @@ const PresForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
                         select
                         id="outlined-required"
                         label="Method"
+                        fullWidth
                         value={route}
                         onChange={(e) => {
                             setRoute(e.target.value);
@@ -125,11 +129,12 @@ const PresForm = () => {
                         ))}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
                         id="outlined-required"
                         label="Duration"
+                        fullWidth
                         value={duration}
                         type="number"
                         onChange={(e) => {
@@ -138,13 +143,14 @@ const PresForm = () => {
                         variant="outlined"
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <TextField
                         required
                         select
                         id="outlined-required"
                         label="Age group"
                         value={ageGroup}
+                        fullWidth
                         onChange={(e) => {
                             setAge(e.target.value);
                         }}
@@ -158,7 +164,7 @@ const PresForm = () => {
                         )}
                     </TextField>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ width: '100%' }}>
                     <IconButton
                         color="primary"
                         aria-label="Submit form"
