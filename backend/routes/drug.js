@@ -7,7 +7,7 @@ router.get('/get/:name', async (req, res) => {
     try {
         Drug.findOne({ name }, (err, doc) => {
             if (err || !doc) return res.sendStatus(404);
-            console.log(doc);
+            // console.log(doc);
             res.send(doc);
         });
     } catch (e) {
@@ -42,7 +42,7 @@ router.get('/find', async (req, res) => {
             },
             (err, doc) => {
                 if (err || !doc) return res.sendStatus(404);
-                console.log(doc);
+                // console.log(doc);
                 res.send(doc);
             },
         );
@@ -58,7 +58,7 @@ router.get('/search', async (req, res) => {
     try {
         Drug.find({ name: { $regex: new RegExp(term, 'i') } }, (err, doc) => {
             if (err || doc == null) return res.sendStatus(404);
-            console.log(doc);
+            // console.log(doc);
             res.send(doc);
         });
     } catch (e) {
@@ -70,7 +70,7 @@ router.get('/list', async (req, res) => {
     try {
         Drug.find({}, { name: 1, _id: 1, drugbank_id: 1 }, (err, doc) => {
             if (err || doc == null) return res.sendStatus(404);
-            console.log(doc);
+            // console.log(doc);
             res.send(doc);
         }).sort({ name: 1 });
     } catch (e) {
@@ -89,7 +89,7 @@ router.get('/target/:id', async (req, res) => {
             },
             (err, doc) => {
                 if (err || doc == null) return res.sendStatus(404);
-                console.log(doc);
+                // console.log(doc);
                 res.send(doc);
             },
         );

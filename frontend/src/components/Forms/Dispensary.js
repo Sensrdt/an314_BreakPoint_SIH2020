@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, TextField, IconButton, MenuItem } from '@material-ui/core';
 import { CheckCircleOutline } from '@material-ui/icons';
-//TODO: Complete
+//TODO: Styling
 const DispForm = () => {
     const [name, setName] = useState('');
-    const [dose, setDose] = useState(0);
     const [amount, setAmount] = useState(0);
     const [sub, setSub] = useState(0);
+    const [form, setForm] = useState('');
     const [drugs, setDrugs] = useState([]);
-    const [dosage, setDosage] = useState([]);
+    const [forms, setForms] = useState([]);
+    const [strength, setStrength] = useState(0);
 
     useEffect(() => {
         fetch('/api/drug/list')
@@ -22,7 +23,12 @@ const DispForm = () => {
             fetch(`/api/drug/get/${name}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    setDosage(data.dosages.dosage);
+                    setForms(
+                        data.dosages.dosage
+                            .map((a) => a.form)
+                            .filter((x, i, a) => a.indexOf(x) === i)
+                            .filter((a) => a),
+                    );
                 });
         }
     }, [name]);
@@ -62,18 +68,33 @@ const DispForm = () => {
                         select
                         id="outlined-required"
                         label="Form"
-                        value={dose}
+                        value={form}
                         onChange={(e) => {
-                            setDose(e.target.value);
+                            setForm(e.target.value);
                         }}
                         variant="outlined"
                     >
-                        {dosage.map((option, index) => (
-                            <MenuItem key={index} value={index}>
-                                {`${option.route} => ${option.form}||${option.strength}`}
-                            </MenuItem>
-                        ))}
+                        {forms
+                            ? forms.map((option, index) => (
+                                  <MenuItem key={index} value={option}>
+                                      {option}
+                                  </MenuItem>
+                              ))
+                            : null}
                     </TextField>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        required
+                        id="outlined-required"
+                        label="Strength"
+                        value={strength}
+                        type="number"
+                        onChange={(e) => {
+                            setStrength(e.target.value);
+                        }}
+                        variant="outlined"
+                    />
                 </Grid>
                 <Grid item>
                     <TextField
@@ -106,7 +127,33 @@ const DispForm = () => {
                     />
                 </Grid>
                 <Grid item>
-                    <IconButton color="primary" aria-label="Submit form">
+                    <IconButton
+                        color="primary"
+                        aria-label="Submit form"
+                        onClick={() => {
+                            fetch('/api/collect/disp', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                credentials: 'include',
+                                body: JSON.stringify({
+                                    payload: {
+                                        drug: name,
+                                        dosage: {
+                                            form,
+                                            strength,
+                                        },
+                                        quantity: {
+                                            amount,
+                                            sub_amount: sub,
+                                            scale: 'g',
+                                        },
+                                    },
+                                }),
+                            });
+                        }}
+                    >
                         <CheckCircleOutline />
                     </IconButton>
                 </Grid>

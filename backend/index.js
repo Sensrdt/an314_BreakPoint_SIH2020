@@ -21,6 +21,7 @@ app.use(function (req, res, next) {
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept',
     );
+    console.log(req.body);
     next();
 });
 

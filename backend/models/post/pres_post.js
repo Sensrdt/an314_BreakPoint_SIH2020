@@ -10,7 +10,7 @@ const schema = new Schema({
     dosage: {
         form: {
             type: String,
-            required: true,
+            required: false,
         },
         route: {
             type: String,

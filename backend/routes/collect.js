@@ -1,18 +1,13 @@
 const { Router } = require('express');
-const supl_post = require('../models/post/supl_post');
-const pres_post = require('../models/post/pres_post');
-const disp_post = require('../models/post/disp_post');
+const SuplPost = require('../models/post/supl_post');
+const PresPost = require('../models/post/pres_post');
+const DispPost = require('../models/post/disp_post');
 const router = new Router();
-
-// const calculateDrugActivity = (quantity, ddd) => {
-//     const drugActivity = quantity / ddd;
-//     return drugActivity;
-// };
 
 router.post('/supl', async (req, res) => {
     try {
-        const data = req.body.payload;
-        supl_post.insertOne(data, (err) => {
+        const data = new SuplPost(req.body.payload);
+        data.save((err) => {
             console.log(err);
         });
     } catch (e) {
@@ -22,22 +17,26 @@ router.post('/supl', async (req, res) => {
 
 router.post('/pres', async (req, res) => {
     try {
-        const data = req.body.payload;
-        pres_post.insertOne(data, (err) => {
+        const data = new PresPost({ ...req.body.payload, location: 'Assam' });
+        // TODO: Replace location with req.user.location, once implemented
+        data.save((err) => {
             console.log(err);
         });
     } catch (e) {
+        console.log(e);
         res.status(500).send();
     }
 });
 
 router.post('/disp', async (req, res) => {
     try {
-        const data = req.body.payload;
-        disp_post.insertOne(data, (err) => {
+        const data = new DispPost({ ...req.body.payload, location: 'Assam' });
+        // TODO: Replace location with req.user.location, once implemented
+        data.save((err) => {
             console.log(err);
         });
     } catch (e) {
+        console.log(e);
         res.status(500).send();
     }
 });
