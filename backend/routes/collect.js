@@ -117,7 +117,7 @@ router.post('/disp', async (req, res) => {
         } = data;
         const drugActivity = amount * sub_amount * strength;
         Results.findOne({ drugName: data.drug }, (err, result) => {
-            if (err) {
+            if (!result) {
                 // create a new result document
                 const emptyResult = new Results({
                     drugName: data.drug,
@@ -133,8 +133,10 @@ router.post('/disp', async (req, res) => {
                     if (err) {
                         res.status(500).send();
                     }
+                    console.log(emptyResult);
                 });
             } else {
+                console.log(result);
                 result.sourceDrugActivity.dispenser += drugActivity;
                 const stateIndex = states.indexOf(data.location);
                 if (stateIndex !== -1) {
