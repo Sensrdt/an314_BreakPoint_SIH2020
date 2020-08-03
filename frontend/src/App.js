@@ -3,17 +3,21 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import NavBar from './components/Navbar';
 import Routes from './components/Routes';
+import ExtraDetails from './components/extraDetails';
 
 export default function App() {
     const [session, setSession] = useState({});
     useEffect(() => {
-        // fetch('/auth/profile')
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         setSession(data);
-        //         console.log(data);
-        //     });
-        setSession({ email: 'account' });
+        fetch('/auth/profile')
+            .then((res) => res.json())
+            .then((data) => {
+                setSession(data);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+                setSession({});
+            });
     }, []);
 
     return (
@@ -22,6 +26,7 @@ export default function App() {
             <Router>
                 <Routes />
             </Router>
+            <ExtraDetails email="email" />
         </div>
     );
 }
