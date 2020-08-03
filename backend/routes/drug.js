@@ -113,7 +113,6 @@ router.get('/results/:name', async (req, res) => {
 });
 
 router.get('/results', async (req, res) => {
-    const name = req.params.name;
     try {
         Results.find({}, (err, docs) => {
             if (err || !docs) return res.sendStatus(404);
