@@ -20,12 +20,12 @@ router.post('/supl', async (req, res) => {
         } = data;
         const drugActivity = amount * sub_amount * strength;
         Results.findOne({ drugName: data.drug }, (err, result) => {
-            if (err) {
+            if (!result) {
                 // create a new result document
                 const emptyResult = new Results({
                     drugName: data.drug,
                     sourceDrugActivity: {
-                        supplier: 0,
+                        supplier: drugActivity,
                         prescriber: 0,
                         dispenser: 0,
                     },
@@ -37,13 +37,14 @@ router.post('/supl', async (req, res) => {
                         res.status(500).send();
                     }
                 });
+            } else {
+                result.sourceDrugActivity.supplier += drugActivity;
+                result.save((err) => {
+                    if (err) {
+                        res.status(404).send();
+                    }
+                });
             }
-            result.sourceDrugActivity.supplier += drugActivity;
-            result.save((err) => {
-                if (err) {
-                    res.status(404).send();
-                }
-            });
         });
     } catch (e) {
         res.status(500).send();
@@ -64,38 +65,43 @@ router.post('/pres', async (req, res) => {
         } = data;
         const drugActivity = duration * strength;
         Results.findOne({ drugName: data.drug }, (err, result) => {
-            if (err) {
+            if (!result) {
                 // create a new result document
+                const stateIndex = states.indexOf(data.location);
+                const ageIndex = ages.indexOf(data.ageGroup);
                 const emptyResult = new Results({
                     drugName: data.drug,
                     sourceDrugActivity: {
                         supplier: 0,
-                        prescriber: 0,
+                        prescriber: drugActivity,
                         dispenser: 0,
                     },
                     stateDrugActivity: Array(states.length).fill(0),
                     ageDrugActivity: Array(ages.length).fill(0),
                 });
-                Results.insertOne(emptyResult, (err) => {
+                emptyResult.stateDrugActivity[stateIndex] += drugActivity;
+                emptyResult.ageDrugActivity[ageIndex] += drugActivity;
+                emptyResult.save(emptyResult, (err) => {
                     if (err) {
                         res.status(500).send();
                     }
                 });
-            }
-            result.sourceDrugActivity.prescriber += drugActivity;
-            const stateIndex = states.indexOf(data.location);
-            if (stateIndex !== -1) {
-                result.stateDrugActivity[stateIndex] += drugActivity;
-            }
-            const ageIndex = ages.indexOf(data.ageGroup);
-            if (ageIndex !== -1) {
-                result.ageDrugActivity[ageIndex] += drugActivity;
-            }
-            result.save((err) => {
-                if (err) {
-                    res.status(404).send();
+            } else {
+                result.sourceDrugActivity.prescriber += drugActivity;
+                const stateIndex = states.indexOf(data.location);
+                if (stateIndex !== -1) {
+                    result.stateDrugActivity[stateIndex] += drugActivity;
                 }
-            });
+                const ageIndex = ages.indexOf(data.ageGroup);
+                if (ageIndex !== -1) {
+                    result.ageDrugActivity[ageIndex] += drugActivity;
+                }
+                result.save((err) => {
+                    if (err) {
+                        res.status(404).send();
+                    }
+                });
+            }
         });
     } catch (e) {
         console.log(e);
