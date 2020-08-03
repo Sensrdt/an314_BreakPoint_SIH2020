@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const Drug = require('../models/drug');
+const Results = require('../models/results');
 const router = new Router();
 
 router.get('/get/:name', async (req, res) => {
@@ -93,6 +94,32 @@ router.get('/target/:id', async (req, res) => {
                 res.send(doc);
             },
         );
+    } catch (e) {
+        res.status(500).send();
+    }
+});
+
+router.get('/results/:name', async (req, res) => {
+    const name = req.params.name;
+    try {
+        Results.findOne({ drugName: name }, (err, doc) => {
+            if (err || !doc) return res.sendStatus(404);
+            // console.log(doc);
+            res.send(doc);
+        });
+    } catch (e) {
+        res.status(500).send();
+    }
+});
+
+router.get('/results', async (req, res) => {
+    const name = req.params.name;
+    try {
+        Results.find({}, (err, docs) => {
+            if (err || !docs) return res.sendStatus(404);
+            // console.log(doc);
+            res.send(docs);
+        });
     } catch (e) {
         res.status(500).send();
     }
