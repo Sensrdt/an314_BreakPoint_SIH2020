@@ -9,7 +9,7 @@
         The Cordova app for Reelitin
     </description>
     <author email="breakpoint.rcc@gmail.com" href="https://github.com/Sensrdt/an314_BreakPoint_SIH2020">
-        Apache Cordova Team
+        BreakPoint
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -25,4 +25,5 @@
         <application android:usesCleartextTraffic="true" />
     </edit-config>
     <preference name="loglevel" value="DEBUG" />
+    <preference name="OverrideUserAgent" value="Mozilla/5.0 My Browser" />
 </widget>
